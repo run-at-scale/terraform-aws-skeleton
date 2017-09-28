@@ -1,9 +1,11 @@
 language: ruby
+sudo: false
 rvm:
-  - 2.4.2
+  # - 2.4.2
+  - 2.2.0
 
 before_install:
-# put credentials in .aws/credentials or environment vars
+  # - install terraform
   - ruby -v
   - env
   - echo "${AWS_ACCESS_KEY_ID}"
@@ -18,6 +20,11 @@ install:
   - bundle install
 
 before_script:
+  - uname -a
+  - which apt
+  - which yum
+  - docker run -i -t hashicorp/terraform:light fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
+  - wget
   - terraform fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
   - terraform validate
   - echo 'before script'
