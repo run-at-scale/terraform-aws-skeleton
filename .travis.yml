@@ -1,11 +1,9 @@
 language: ruby
-sudo: required
+sudo: false
+dist: trusty
 rvm:
   - 2.4.2
   # - 2.2.0 # necessary for docker
-
-services:
-  - docker
 
 before_install:
   - echo "before_install"
@@ -21,8 +19,8 @@ install:
   - mkdir -p ${HOME}/bin
   - export PATH=${PATH}:${HOME}/bin
   - mv terraform ${HOME}/bin/
-  - which terraform
   - terraform -v
+  - export TF_VAR_region="us-west-2"
 
 before_script:
   - echo 'before_script'
@@ -34,7 +32,9 @@ before_script:
   - terraform fmt -check=true
   - terraform validate
   - cd examples/test_fixtures
+  - tail -n30 main.tf
   - sed -i.bak 's/source = \"\.\.\/\.\.\/\"/sources = "\..\/.."/g' main.tf # 3 dirs back to 2
+  - tail -n30 main.tf
   - terraform init
   - terraform fmt -check=true
   - terraform validate
