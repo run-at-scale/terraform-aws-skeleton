@@ -18,7 +18,7 @@ provider "aws" {
 # }
 
 module "main" {
-  source = "../../.."
+  source = "../.."
 
   tags {
     "Terraform" = "true"

@@ -24,17 +24,12 @@ install:
 
 before_script:
   - echo 'before_script'
-  # - docker pull hashicorp/terraform:light
-  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light init
-  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light fmt -check=true
-  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light validate
   - terraform init
   - terraform fmt -check=true
   - terraform validate
   - cd examples/test_fixtures
   - tail -n30 main.tf
-  - sed -i.bak 's/source = \"\.\.\/\.\.\/\"/sources = "\..\/.."/g' main.tf # 3 dirs back to 2
-  - tail -n30 main.tf
+  - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf # 3 dirs back to 2
   - terraform init
   - terraform fmt -check=true
   - terraform validate
