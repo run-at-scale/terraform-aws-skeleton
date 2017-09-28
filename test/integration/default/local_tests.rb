@@ -18,7 +18,6 @@ describe account do
   its(:user_id) { should eq caller_user }
   # its(:account) { should eq account_id }
   its(:arn) { should eq caller_arn }
-
 end
 
 describe account_attribute('ec2') do

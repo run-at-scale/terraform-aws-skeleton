@@ -31,7 +31,7 @@ This module has been packaged with [awspec]('https://github.com/k1LoW/awspec') t
 1. Install the prerequisites of rvm and ruby 2.4.0 via homebrew.
 2. Install bundler and the gems from our Gemfile:
 ```
-gem install bundler; bundle install
+rvm install 2.4.2; gem install bundler; bundle install
 ```
 3. Test using `kitchen test` from the root of the repo.
 
