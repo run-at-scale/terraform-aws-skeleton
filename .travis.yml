@@ -24,17 +24,17 @@ install:
 before_script:
   - echo 'before_script'
   - export TF_VAR_region=us-west-2
-  - env
   - terraform init
   - terraform fmt -check=true
   - terraform validate
   - cd examples/test_fixtures
   # this line is to change the source of the root module to 2 dirs back which works when validating in CI but when running through test kitchen, we need 3 dirs up oddly
-  - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf # source is up 2 dirs
+  - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf
   - terraform init
   - terraform fmt -check=true
   - terraform validate
   - mv main.tf.bak main.tf
+  - cd -
 
 script:
   - echo 'before_script'
@@ -49,7 +49,6 @@ script:
 before_deploy:
 # create new release in github? check if this is new release?
   - echo 'before_deploy phase'
-
 
 deploy:
   provider: script
