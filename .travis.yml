@@ -23,20 +23,24 @@ install:
 
 before_script:
   - echo 'before_script'
-  - tf_options=" -var 'region=us-west-2'"
+  - TF_VARS_region=us-west-2
+  - TF_VARS="-var 'region=us-west-2'"
+  - echo ${TF_VARS}
+  - env
+  - echo 'region = "us-west-2"' > terraform.tfvars
   - terraform init
   - terraform fmt -check=true
-  - terraform validate ${tf_options}
+  - terraform validate
   - cd examples/test_fixtures
+  - echo 'region = "us-west-2"' > terraform.tfvars
   - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf # 3 dirs back to 2
   - terraform init
   - terraform fmt -check=true
-  - terraform validate ${tf_options}
+  - terraform validate -var 'region=us-west-2'
   - mv main.tf.bak main.tf
 
 script:
   - echo 'before_script'
-  - export TF_VAR_region=us-west-2
   - kitchen test --destroy always
 
 # after_success:
