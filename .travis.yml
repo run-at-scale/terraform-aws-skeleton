@@ -13,8 +13,13 @@ install:
   - bundle install
 
 before_script:
-  - uname -a
-  - which apt
+  # - docker pull hashicorp/terraform:light
+  - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
+  - unzip terraform_0.10.6_linux_amd64
+  - chmod +x terraform
+  - echo ${PATH}
+  - mv terraform /usr/local/bin/
+  - terraform -v
   - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light init
   - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light fmt -check=true
   - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light validate
