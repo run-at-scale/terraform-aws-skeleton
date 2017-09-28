@@ -37,7 +37,7 @@ before_deploy:
 
 deploy:
   # publish to terraform registry
-  - echo 'deploy phase'
+  - "echo 'deploy phase'"
 
 # after_deploy:
 #   - echo 'foo'
