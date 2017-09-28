@@ -19,6 +19,7 @@ provider "aws" {
 
 module "main" {
   source = "../../.."
+  region = "${var.region}"
 
   tags {
     "Terraform" = "true"
