@@ -1,5 +1,7 @@
 require 'awspec'
-require 'Rhcl'
+puts $:
+require 'rhcl'
+
 
 default_vars = Rhcl.parse(File.open('variables.tf').read())
 fixture_override_vars = Rhcl.parse(File.open('examples/test_fixtures/variables.tf').read())
