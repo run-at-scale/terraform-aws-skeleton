@@ -28,7 +28,7 @@ before_script:
   - terraform init
   - terraform fmt -check=true
   - terraform validate
-  # - docker run --rm -v $(pwd):/data --workdir=/data -t wata727/tflint --error-with-issues
+  - docker run --rm -v $(pwd):/data --workdir=/data -t wata727/tflint --error-with-issues
   - cd examples/test_fixtures
   # this line is to change the source of the root module to 2 dirs back which works when validating in CI but when running through test kitchen, we need 3 dirs up oddly
   - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf
@@ -55,7 +55,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: scripts/deploy.sh
+  script: ci/deploy.sh
   on:
     branch: dev
 
