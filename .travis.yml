@@ -23,9 +23,9 @@ install:
 
 before_script:
   - echo 'before_script'
-  - TF_VARS_region=us-west-2
-  - TF_VARS="-var 'region=us-west-2'"
-  - echo ${TF_VARS}
+  - TF_VAR_region=us-west-2
+  - TF_VAR="-var 'region=us-west-2'"
+  - echo ${TF_VAR}
   - env
   - echo 'region = "us-west-2"' > terraform.tfvars
   - terraform init
@@ -34,7 +34,7 @@ before_script:
   - cd examples/test_fixtures
   - echo 'region = "us-west-2"' > terraform.tfvars
   - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf # 3 dirs back to 2
-  - terraform init
+  - terraform init -var 'region=us-west-2'
   - terraform fmt -check=true
   - terraform validate -var 'region=us-west-2'
   - mv main.tf.bak main.tf
