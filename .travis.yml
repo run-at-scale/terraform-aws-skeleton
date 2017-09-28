@@ -1,37 +1,48 @@
 language: ruby
 sudo: required
 rvm:
-  # - 2.4.2
-  - 2.2.0
+  - 2.4.2
+  # - 2.2.0 # necessary for docker
 
 services:
   - docker
 
 before_install:
+  - echo "before_install"
   # - install terraform
-  - echo "before install"
 
 install:
+  - echo "install"
   - gem install bundler --no-rdoc --no-ri
   - bundle install
-
-before_script:
-  # - docker pull hashicorp/terraform:light
   - wget https://releases.hashicorp.com/terraform/0.10.6/terraform_0.10.6_linux_amd64.zip
   - unzip terraform_0.10.6_linux_amd64
   - chmod +x terraform
-  - echo ${PATH}
-  - mkdir -p ~/bin
-  - pwd
-  - echo ~
-  - mv terraform /home/travis/bin/
+  - mkdir -p ${HOME}/bin
+  - export PATH=${PATH}:${HOME}/bin
+  - mv terraform ${HOME}/bin/
+  - which terraform
   - terraform -v
-  - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light init
-  - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light fmt -check=true
-  - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light validate
-  - echo 'before script'
+
+before_script:
+  - echo 'before_script'
+  # - docker pull hashicorp/terraform:light
+  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light init
+  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light fmt -check=true
+  # - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light validate
+  - terraform init
+  - terraform fmt -check=true
+  - terraform validate
+  - cd examples/test_fixtures
+  - sed -i.bak 's/source = \"\.\.\/\.\.\/\"/sources = "\..\/.."/g' main.tf # 3 dirs back to 2
+  - terraform init
+  - terraform fmt -check=true
+  - terraform validate
+  # - sed -i.bak 's/source = \"\.\.\/\.\.\"/source = "..\/..\/../g' main.tf # 2 dirs back to 3
+  - mv main.tf.bak main.tf
 
 script:
+  - echo 'before_script'
   - kitchen test --destroy always
 
 # after_success:
@@ -43,6 +54,7 @@ script:
 before_deploy:
 # create new release in github? check if this is new release?
   - echo 'before_deploy phase'
+
 
 deploy:
   provider: script
