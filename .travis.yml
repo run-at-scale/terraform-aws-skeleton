@@ -5,6 +5,8 @@ rvm:
 before_install:
 # put credentials in .aws/credentials or environment vars
   - ruby -v
+  - env
+  - echo "${AWS_ACCESS_KEY_ID}"
   - which rvm
   - rvm list
   - echo "before install"
