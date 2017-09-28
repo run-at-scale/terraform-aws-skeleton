@@ -36,8 +36,10 @@ before_deploy:
   - echo 'before_deploy phase'
 
 deploy:
-  # publish to terraform registry
-  - "echo 'deploy phase'"
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: dev
 
 # after_deploy:
 #   - echo 'foo'
