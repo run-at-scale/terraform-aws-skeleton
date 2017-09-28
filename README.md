@@ -26,6 +26,9 @@ module "this" {
 3. Always `terraform plan` to see your change before running `terraform apply`.
 4. Win the day!
 
+## Importing existing infra
+Discuss the various terraform import commands that could be run to get this module close to owning a set of existing live infra.
+
 ## Testing
 This module has been packaged with [awspec]('https://github.com/k1LoW/awspec') tests through test kitchen. To run them:
 1. Install the prerequisites of rvm and ruby 2.4.0 via homebrew.

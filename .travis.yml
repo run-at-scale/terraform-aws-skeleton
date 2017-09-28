@@ -15,7 +15,6 @@ install:
 before_script:
   - uname -a
   - which apt
-  - which yum
   - docker run -i -t hashicorp/terraform:light fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
   - docker run -i -t hashicorp/terraform:light terraform validate; if [ $? -ne 0 ]; exit 1; fi
   - echo 'before script'
