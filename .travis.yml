@@ -6,16 +6,9 @@ rvm:
 
 before_install:
   # - install terraform
-  - ruby -v
-  - env
-  - echo "${AWS_ACCESS_KEY_ID}"
-  - which rvm
-  - rvm list
   - echo "before install"
 
 install:
-  - which gem
-  - gem -v
   - gem install bundler --no-rdoc --no-ri
   - bundle install
 
@@ -24,9 +17,7 @@ before_script:
   - which apt
   - which yum
   - docker run -i -t hashicorp/terraform:light fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
-  - wget
-  - terraform fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
-  - terraform validate
+  - docker run -i -t hashicorp/terraform:light terraform validate; if [ $? -ne 0 ]; exit 1; fi
   - echo 'before script'
 
 script:
