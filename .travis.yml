@@ -1,0 +1,44 @@
+language: ruby
+rvm:
+  - 2.4.2
+
+before_install:
+# put credentials in .aws/credentials or environment vars
+  - ruby -v
+  - which rvm
+  - rvm list
+  - echo "before install"
+
+install:
+  - which gem
+  - gem -v
+  - gem install bundler --no-rdoc --no-ri
+  - bundle install
+
+before_script:
+  - terraform fmt -check=true; if [ $? -ne 0 ]; exit 1; fi
+  - terraform validate
+  - echo 'before script'
+
+script:
+  - kitchen test --destroy always
+
+# after_success:
+#   - echo 'foo'
+
+# after_failure:
+#   - echo 'foo'
+
+before_deploy:
+# create new release in github? check if this is new release?
+  - echo 'before_deploy phase'
+
+deploy:
+  # publish to terraform registry
+  - echo 'deploy phase'
+
+# after_deploy:
+#   - echo 'foo'
+
+# after_script:
+#   - echo 'foo'

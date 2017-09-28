@@ -1,7 +1,7 @@
-variable "log_prefix" {
-  default = "my-alb-logs"
-}
+# variable "baz" {
+#   default = "beep"
+# }
 
-variable "aws_region" {
+variable "region" {
   default = "us-west-2"
 }
