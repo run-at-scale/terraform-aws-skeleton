@@ -38,6 +38,7 @@ before_script:
 
 script:
   - echo 'before_script'
+  - bundle install
   - kitchen test --destroy always
 
 # after_success:
