@@ -1,5 +1,5 @@
 # terraform-aws-skeleton
-A barebones Terraform module to be forked and turned into something useful.
+A bare-bones Terraform module to be forked and turned into something useful.
 
 ## Assumptions
 
@@ -51,7 +51,7 @@ individual change made. These are the steps:
 6. Create a new Pull Request and tell us about your changes.
 
 ## Change log
-The [changelog](CHANGELOG.md) captures all important release notes.
+The [change log](CHANGELOG.md) captures all important release notes.
 
 ## Authors
 Created and maintained by [Brandon O'Connor](https://github.com/brandoconnor) - brandon@atscale.run.
