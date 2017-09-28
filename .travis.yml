@@ -21,7 +21,10 @@ before_script:
   - unzip terraform_0.10.6_linux_amd64
   - chmod +x terraform
   - echo ${PATH}
-  - mv terraform /home/travis/.local/bin/
+  - mkdir -p ~/bin
+  - pwd
+  - echo ~
+  - mv terraform /home/travis/bin/
   - terraform -v
   - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light init
   - docker run -i -t -v $(pwd):/app/ -w /app/ hashicorp/terraform:light fmt -check=true
