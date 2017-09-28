@@ -28,8 +28,9 @@ before_script:
   - terraform fmt -check=true
   - terraform validate
   - cd examples/test_fixtures
-  - tail -n30 main.tf
+  - tail main.tf
   - sed -i.bak 's/source = \"\.\.\//source = \"/g' main.tf # 3 dirs back to 2
+  - tail main.tf
   - terraform init
   - terraform fmt -check=true
   - terraform validate
