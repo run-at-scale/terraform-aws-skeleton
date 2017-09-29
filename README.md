@@ -1,8 +1,9 @@
 # terraform-aws-skeleton
 A bare-bones Terraform module to be forked and turned into something useful.
 
-[![master build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
-[![dev build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
+master: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
+
+dev: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
 
 ## Assumptions
 
@@ -34,7 +35,7 @@ Discuss the various terraform import commands that could be run to get this modu
 
 ## Testing
 This module has been packaged with [awspec]('https://github.com/k1LoW/awspec') tests through test kitchen. To run them:
-1. Install the prerequisites of rvm and ruby 2.4.0 via homebrew.
+1. Install the prerequisites of rvm and ruby 2.4.2 via homebrew.
 2. Install bundler and the gems from our Gemfile:
 ```
 gem install bundler; bundle install
