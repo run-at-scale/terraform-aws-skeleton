@@ -7,6 +7,7 @@ A bare-bones Terraform module to be forked and turned into something useful.
 | dev | [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton) |
 
 ## Assumptions
+Assumptions stated here.
 
 ## Input Variables
 * `aws_region` - Region to deploy our resources. (Required)
