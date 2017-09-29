@@ -1,5 +1,9 @@
 # terraform-aws-skeleton
-A barebones Terraform module to be forked and turned into something useful.
+A bare-bones Terraform module to be forked and turned into something useful.
+
+master: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
+
+dev: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
 
 ## Assumptions
 
@@ -26,9 +30,12 @@ module "this" {
 3. Always `terraform plan` to see your change before running `terraform apply`.
 4. Win the day!
 
+## Importing existing infra
+Discuss the various terraform import commands that could be run to get this module close to owning a set of existing live infra.
+
 ## Testing
 This module has been packaged with [awspec]('https://github.com/k1LoW/awspec') tests through test kitchen. To run them:
-1. Install the prerequisites of rvm and ruby 2.4.0 via homebrew.
+1. Install the prerequisites of rvm and ruby 2.4.2 via homebrew.
 2. Install bundler and the gems from our Gemfile:
 ```
 rvm install 2.4.2; gem install bundler; bundle install
@@ -48,7 +55,7 @@ individual change made. These are the steps:
 6. Create a new Pull Request and tell us about your changes.
 
 ## Change log
-The [changelog](CHANGELOG.md) captures all important release notes.
+The [change log](CHANGELOG.md) captures all important release notes.
 
 ## Authors
 Created and maintained by [Brandon O'Connor](https://github.com/brandoconnor) - brandon@atscale.run.

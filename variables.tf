@@ -16,3 +16,5 @@ variable "baz" {
   description = "An example variable to be consumed for tests and resources."
   default     = "qux"
 }
+
+variable "region" {}
