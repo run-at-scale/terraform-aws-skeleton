@@ -1,9 +1,10 @@
 # terraform-aws-skeleton
 A bare-bones Terraform module to be forked and turned into something useful.
 
-master: [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton)
-
-dev: [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton)
+| Branch | Build status |
+| --- | --- |
+| master | [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton) |
+| dev | [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton) |
 
 ## Assumptions
 
@@ -18,7 +19,7 @@ dev: [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.
 A full example leveraging other community modules is contained in the [examples/test_fixtures directory](examples/test_fixtures). Here's the gist of using it via the Terraform registry:
 ```
 module "this" {
-  source              = "terraform-aws-modules/alb/aws"
+  source              = "terraform-aws-modules/foo/aws"
   vpc_id              = "${var.vpc_id}"
 
   tags {
