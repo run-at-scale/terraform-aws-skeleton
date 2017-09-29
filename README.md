@@ -1,9 +1,9 @@
 # terraform-aws-skeleton
 A bare-bones Terraform module to be forked and turned into something useful.
 
-master: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
+master: [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=master)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton)
 
-dev: [![build Status](https://travis-ci.org/brandoconnor/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/brandoconnor/terraform-aws-skeleton)
+dev: [![build Status](https://travis-ci.org/run-at-scale/terraform-aws-skeleton.svg?branch=dev)](https://travis-ci.org/run-at-scale/terraform-aws-skeleton)
 
 ## Assumptions
 
