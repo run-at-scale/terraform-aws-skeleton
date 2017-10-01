@@ -53,6 +53,7 @@ script:
   # - docker run --rm -v $(pwd):/data --workdir=/data -t wata727/tflint --error-with-issues
   - mv main.tf.bak main.tf
   - cd -
+  - terraform -v
   - kitchen test --destroy always
 
 # after_success:
