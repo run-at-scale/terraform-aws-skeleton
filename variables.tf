@@ -18,3 +18,17 @@ variable "baz" {
 }
 
 variable "region" {}
+
+variable "list_input_output" {
+  type    = "list"
+  default = ["1", "2", 3]
+}
+
+variable "map_input_output" {
+  type = "map"
+
+  default = {
+    foo = "bar"
+    baz = "bomb"
+  }
+}
