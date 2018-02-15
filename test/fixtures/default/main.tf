@@ -1,10 +1,9 @@
 terraform {
-  required_version = "~> 0.10.6"
+  required_version = "~> 0.10.8"
 }
 
 provider "aws" {
-  region  = "${var.region}"
-  version = "1.0.0"
+  version = "~> 1.0.0"
 }
 
 resource "null_resource" "debug_echo" {
@@ -18,10 +17,7 @@ resource "null_resource" "debug_echo" {
 }
 
 module "main" {
-  # source = "/app/" if running with `docker run -i -t -v $(pwd):/app/ -w /app/examples/test_fixtures hashicorp/terraform:light init`
-
   source = "../../.."
-
   region = "${var.region}"
 
   tags {

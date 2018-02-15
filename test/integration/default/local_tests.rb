@@ -1,12 +1,9 @@
 require 'awspec'
 require 'rhcl'
 
-default_vars = Rhcl.parse(File.open('variables.tf').read())
-fixture_override_vars = Rhcl.parse(File.open('examples/test_fixtures/variables.tf').read())
-# FIXME: why does this not work to merge the hashes?
-final_vars = default_vars.merge(fixture_override_vars)
-# puts final_vars
-# source from fixture first, default vars second
+default_vars = Rhcl.parse(File.open('variables.tf').read)
+override_var_file = 'test/fixtures/default/variables.tf'
+fixture_override_vars = Rhcl.parse(File.open(overrride_var_file).read)
 baz = fixture_override_vars['variable']['baz'] || default_vars['variable']['baz']
 
 tf_state = JSON.parse(File.open('.kitchen/kitchen-terraform/default-aws/terraform.tfstate').read())
